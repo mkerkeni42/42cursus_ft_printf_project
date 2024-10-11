@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned_int.c                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkerkeni <mkerkeni@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 12:54:30 by mkerkeni          #+#    #+#             */
-/*   Updated: 2024/10/11 21:09:03 by mkerkeni         ###   ########.fr       */
+/*   Created: 2022/11/10 12:06:49 by mkerkeni          #+#    #+#             */
+/*   Updated: 2024/09/25 19:34:42 by mkerkeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
-void	ft_putnbr_unsigned_int(unsigned int nb)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (nb <= 9)
-		ft_putchar_fd(nb + '0', 1);
-	else
-	{
-		ft_putnbr_unsigned_int(nb / 10);
-		ft_putnbr_unsigned_int(nb % 10);
-	}
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	i = 0;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (i < (n - 1) && (str1[i] || str2[i]) && str1[i] == str2[i])
+		i++;
+	if (n == 0)
+		return (0);
+	return (str1[i] - str2[i]);
 }

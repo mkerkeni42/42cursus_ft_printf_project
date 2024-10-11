@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned_int.c                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkerkeni <mkerkeni@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 12:54:30 by mkerkeni          #+#    #+#             */
-/*   Updated: 2024/10/11 21:09:03 by mkerkeni         ###   ########.fr       */
+/*   Created: 2022/11/11 12:01:36 by mkerkeni          #+#    #+#             */
+/*   Updated: 2024/09/25 19:34:42 by mkerkeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
-void	ft_putnbr_unsigned_int(unsigned int nb)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (nb <= 9)
-		ft_putchar_fd(nb + '0', 1);
-	else
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	i = 0;
+	str1 = (unsigned char *)dst;
+	str2 = (unsigned char *)src;
+	if (!str1 && !str2)
+		return (0);
+	while (i < n)
 	{
-		ft_putnbr_unsigned_int(nb / 10);
-		ft_putnbr_unsigned_int(nb % 10);
+		str1[i] = str2[i];
+		i++;
 	}
+	while (i < n)
+	{
+		str1[i] = '\0';
+		i++;
+	}
+	return (str1);
 }

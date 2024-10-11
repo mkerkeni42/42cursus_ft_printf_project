@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned_int.c                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkerkeni <mkerkeni@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 12:54:30 by mkerkeni          #+#    #+#             */
-/*   Updated: 2024/10/11 21:09:03 by mkerkeni         ###   ########.fr       */
+/*   Created: 2022/11/07 15:46:28 by mkerkeni          #+#    #+#             */
+/*   Updated: 2024/09/25 19:34:42 by mkerkeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
-void	ft_putnbr_unsigned_int(unsigned int nb)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if (nb <= 9)
-		ft_putchar_fd(nb + '0', 1);
-	else
+	size_t			i;
+	unsigned char	*str;
+
+	i = 0;
+	str = (unsigned char *)b;
+	while (i < len)
 	{
-		ft_putnbr_unsigned_int(nb / 10);
-		ft_putnbr_unsigned_int(nb % 10);
+		str[i] = c;
+		i++;
 	}
+	return (b);
 }

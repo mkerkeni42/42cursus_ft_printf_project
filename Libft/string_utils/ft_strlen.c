@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned_int.c                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkerkeni <mkerkeni@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 12:54:30 by mkerkeni          #+#    #+#             */
-/*   Updated: 2024/10/11 21:09:03 by mkerkeni         ###   ########.fr       */
+/*   Created: 2022/11/07 12:46:36 by mkerkeni          #+#    #+#             */
+/*   Updated: 2024/09/25 19:34:42 by mkerkeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
-void	ft_putnbr_unsigned_int(unsigned int nb)
+size_t	ft_strlen(const char *s)
 {
-	if (nb <= 9)
-		ft_putchar_fd(nb + '0', 1);
-	else
+	size_t	i;
+
+	i = 0;
+	while (s[i])
 	{
-		ft_putnbr_unsigned_int(nb / 10);
-		ft_putnbr_unsigned_int(nb % 10);
+		i++;
 	}
+	return (i);
 }

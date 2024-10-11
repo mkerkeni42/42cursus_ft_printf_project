@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mkerkeni <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mkerkeni <mkerkeni@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 17:53:41 by mkerkeni          #+#    #+#              #
-#    Updated: 2022/12/04 13:17:40 by mkerkeni         ###   ########.fr        #
+#    Updated: 2024/10/11 21:07:00 by mkerkeni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = ft_printf.c ft_putnbr_unsigned_int.c print_str.c print_nbr.c ft_putnbr_he
 OBJS = $(SRCS:.c=.o)
 
 .c.o:
-	$(CC) $(CFLAGS) -I $(H_FILE) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -I . -c $< -o $(<:.c=.o)
 
 all: $(NAME)
 
